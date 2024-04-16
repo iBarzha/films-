@@ -1,0 +1,25 @@
+<h2><%= @film.title %></h2>
+<%= image_tag(@film.image) if @film.image.attached? %>
+
+<h2>Comments</h2>
+<% @film.comments.each do |comment| %>
+  <div class="comment">
+    <p><strong><%= comment.user.email %>:</strong> <%= comment.body %></p>
+    <% if comment.user == current_user %>
+      <%= link_to 'Delete', [@film, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </div>
+<% end %>
+
+<% if user_signed_in? %>
+  <h3>Add a comment:</h3>
+  <%= form_with(model: [ @film, @film.comments.build ], local: true) do |form| %>
+    <div class="field">
+      <%= form.label :body %><br>
+      <%= form.text_area :body %>
+    </div>
+    <div class="actions">
+      <%= form.submit 'Post Comment' %>
+    </div>
+  <% end %>
+<% end %>

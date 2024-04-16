@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Films Library</title>
+</head>
+<body>
+<h1>Welcome to Films Library</h1>
+
+<% if user_signed_in? %>
+  <p>You are signed in as <%= current_user.email %>.</p>
+  <%= link_to('Sign out', destroy_user_session_path, method: :delete) %>
+<% else %>
+  <p>Please <%= link_to('sign up', new_user_registration_path) %> or <%= link_to('sign in', new_user_session_path) %> to continue.</p>
+<% end %>
+</body>
+</html>
