@@ -15,7 +15,7 @@ class User < ApplicationRecord
   end
 
   def self.ransackable_attributes(_auth_object = nil)
-    %w[admin created_at email id remember_created_at reset_password_sent_at reset_password_token updated_at]
+    %w[admin created_at email id remember_created_at reset_password_sent_at reset_password_token]
   end
 
   devise :database_authenticatable, :registerable,
