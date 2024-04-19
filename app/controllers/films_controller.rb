@@ -1,14 +1,15 @@
-ActiveAdmin.register Film do
-  permit_params :title, :description, :genre, :year, :image
+class FilmsController < ApplicationController
+  def index
+    @q = Film.ransack(params[:q])
+    @films = @q.result(distinct: true)
+    @films = @films.joins(:image_attachment).where('active_storage_attachments.filename LIKE ?', "%#{params[:q][:image_filename_cont]}%")
 
-  form do |f|
-    f.inputs do
-      f.input :title
-      f.input :description
-      f.input :genre
-      f.input :year
-      f.input :image, as: :file
+    if params[:q][:image_attachment_filename].present?
+      @films = @films.joins(:image_attachment).where('active_storage_attachments.filename = ?', params[:q][:image_attachment_filename])
     end
-    f.actions
+
+    if params[:q][:image_attachment_content_type].present?
+      @films = @films.joins(:image_attachment).where('active_storage_attachments.content_type = ?', params[:q][:image_attachment_content_type])
+    end
   end
 end

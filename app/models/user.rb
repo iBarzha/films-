@@ -2,14 +2,6 @@ class User < ApplicationRecord
 
   has_many :comments
 
-  def admin?
-    self.admin
-  end
-
-  def make_admin!
-    self.update(admin: true)
-  end
-
   def self.ransackable_associations(_auth_object = nil)
     ["comments"]
   end
