@@ -1,5 +1,17 @@
 ActiveAdmin.register Film do
-  permit_params :title, :description, :genre_id, :year, :image
+  permit_params :title, :description, :genre_id, :year, :image, :author
+
+  form do |f|
+    f.inputs do
+      f.input :title
+      f.input :description
+      f.input :genre
+      f.input :year
+      f.input :image, as: :file
+      f.input :author
+    end
+    f.actions
+  end
 
   filter :title
   filter :description
