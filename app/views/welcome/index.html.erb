@@ -1,16 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Welcome to Films Library</title>
-</head>
-<body>
-<h1>Welcome to Films Library</h1>
-
-<% if user_signed_in? %>
-  <p>You are signed in as <%= current_user.email %>.</p>
-  <%= link_to('Sign out', destroy_user_session_path, method: :delete) %>
-<% else %>
-  <p>Please <%= link_to('sign up', new_user_registration_path) %> or <%= link_to('sign in', new_user_session_path) %> to continue.</p>
-<% end %>
-</body>
-</html>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h1>Welcome to FilmsLibrary</h1>
+      <% if @film %>
+        <div class="card">
+          <% if @film.image.attached? %>
+            <%= image_tag @film.image.variant(resize_to_fit: [300, 300]), class: "card-img-top", alt: @film.title %>
+          <% else %>
+            <div class="card-img-top">No Image</div>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= @film.title %></h5>
+            <p class="card-text"> <%= @film.year %></p>
+          </div>
+        </div>
+      <% else %>
+        <p>No films available</p>
+      <% end %>
+    </div>
+  </div>
+</div>

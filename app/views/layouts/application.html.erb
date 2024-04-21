@@ -15,17 +15,6 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <% if user_signed_in? %>
-        <%= link_to('Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-primary') %>
-      <% else %>
-        <%= link_to('Sign up', new_user_registration_path, class: 'btn btn-primary') %> |
-        <%= link_to('Sign in', new_user_session_path, class: 'btn btn-primary') %>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="row justify-content-center">
-    <div class="col-md-6">
       <%= yield %>
     </div>
   </div>
