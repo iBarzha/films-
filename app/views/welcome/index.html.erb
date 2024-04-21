@@ -1,13 +1,27 @@
-<div class="container">
+<% if user_signed_in? %>
+  <div class="text-end mt-3 m-4">
+    <%= link_to('Sign out', destroy_user_session_path, method: :delete, class: "btn btn-primary text-white") %>
+  </div>
+<% else %>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center">
+        <p class="mb-4">Please <%= link_to('sign up', new_user_registration_path) %> or <%= link_to('sign in', new_user_session_path) %> to continue.</p>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="container mt-5">
   <div class="row">
     <% @films.each do |film| %>
-      <div class="col-md-4 mb-4">
+      <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
         <%= link_to film_path(film) do %>
           <div class="card">
             <% if film.image.attached? %>
-              <%= image_tag rails_blob_path(film.image), class: "card-img-top", alt: film.title %>
+              <%= image_tag rails_blob_path(film.image), class: "card-img-top img-fluid img-height", alt: film.title %>
             <% else %>
-              <div class="card-img-top">No Image</div>
+              <div class="card-img-top img-height">No Image</div>
             <% end %>
             <div class="card-body">
               <h5 class="card-title"><%= film.title %></h5>

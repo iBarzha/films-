@@ -12,3 +12,11 @@
  *= require_tree .
  *= require_self
  */
+*{
+    text-decoration: none !important;
+    color: #2E2F30;
+}
+.img-height {
+    height: 300px;
+    object-fit: cover;
+}
