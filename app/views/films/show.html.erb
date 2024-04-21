@@ -1,25 +1,41 @@
-<h2><%= @film.title %></h2>
-<%= image_tag(@film.image) if @film.image.attached? %>
-
-<h2>Comments</h2>
-<% @film.comments.each do |comment| %>
-  <div class="comment">
-    <p><strong><%= comment.user.email %>:</strong> <%= comment.body %></p>
-    <% if comment.user == current_user %>
-      <%= link_to 'Delete', [@film, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag(@film.image, class: "img-fluid") if @film.image.attached? %>
+    </div>
+    <div class="col-md-8">
+      <h2><%= @film.title %></h2>
+      <p><strong>Release Year:</strong> <%= @film.year %></p>
+      <p><strong>Author:</strong> <%= @film.author.name %></p>
+      <p><strong>Genre:</strong> <%= @film.genre.name %></p>
+      <p><strong>Description:</strong> <%= @film.description %></p>
+    </div>
   </div>
-<% end %>
 
-<% if user_signed_in? %>
-  <h3>Add a comment:</h3>
-  <%= form_with(model: [ @film, @film.comments.build ], local: true) do |form| %>
-    <div class="field">
-      <%= form.label :body %><br>
-      <%= form.text_area :body %>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Comments</h2>
+      <% @film.comments.each do |comment| %>
+        <div class="comment">
+          <p><strong><%= comment.user.email %>:</strong> <%= comment.body %></p>
+          <% if comment.user == current_user %>
+            <%= link_to 'Delete', [@film, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <h3>Add a comment:</h3>
+        <%= form_with(model: [ @film, @film.comments.build ], local: true) do |form| %>
+          <div class="field">
+            <%= form.label :body %><br>
+            <%= form.text_area :body %>
+          </div>
+          <div class="actions">
+            <%= form.submit 'Post Comment' %>
+          </div>
+        <% end %>
+      <% end %>
     </div>
-    <div class="actions">
-      <%= form.submit 'Post Comment' %>
-    </div>
-  <% end %>
-<% end %>
+  </div>
+</div>

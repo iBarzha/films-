@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @film = Film.first
+    @films = Film.order(created_at: :desc).limit(5)
   end
 
 end

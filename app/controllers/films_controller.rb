@@ -1,4 +1,8 @@
 class FilmsController < ApplicationController
+
+  def show
+    @film = Film.find(params[:id])
+  end
   def index
     @q = Film.ransack(params[:q])
     @films = @q.result(distinct: true)

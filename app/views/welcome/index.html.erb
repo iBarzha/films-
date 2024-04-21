@@ -1,22 +1,21 @@
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <h1>Welcome to FilmsLibrary</h1>
-      <% if @film %>
-        <div class="card">
-          <% if @film.image.attached? %>
-            <%= image_tag @film.image.variant(resize_to_fit: [300, 300]), class: "card-img-top", alt: @film.title %>
-          <% else %>
-            <div class="card-img-top">No Image</div>
-          <% end %>
-          <div class="card-body">
-            <h5 class="card-title"><%= @film.title %></h5>
-            <p class="card-text"> <%= @film.year %></p>
+  <div class="row">
+    <% @films.each do |film| %>
+      <div class="col-md-4 mb-4">
+        <%= link_to film_path(film) do %>
+          <div class="card">
+            <% if film.image.attached? %>
+              <%= image_tag rails_blob_path(film.image), class: "card-img-top", alt: film.title %>
+            <% else %>
+              <div class="card-img-top">No Image</div>
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><%= film.title %></h5>
+              <p class="card-text"><%= film.year %></p>
+            </div>
           </div>
-        </div>
-      <% else %>
-        <p>No films available</p>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
