@@ -8,13 +8,6 @@ ActiveAdmin.register Film do
     column :description
     column :genre
     column :year
-    column "Image" do |film|
-      if film.image.attached?
-        image_tag film.image.variant(resize: '100x100')
-      else
-        "No Image"
-      end
-    end
     column :author
     actions
   end
