@@ -16,8 +16,43 @@
     text-decoration: none !important;
     color: #2E2F30;
 }
-.img-height {
+.latest-updates-image {
     height: 300px;
     object-fit: cover;
 }
 
+.random-posters-image {
+    height: 500px;
+    object-fit: cover;
+}
+
+.card {
+    overflow: hidden;
+}
+
+.card-img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover .card-img {
+    transform: scale(1.3);
+}
+
+.form-control {
+    height: 30px;
+}
+.search-btn {
+    background: transparent;
+    all: unset;
+}
+.search-btn:hover {
+    background: transparent !important;
+}
+.with-icon {
+    padding-right: 38px;
+}
+
+.input-group-text {
+    background-color: transparent;
+    border: none;
+}

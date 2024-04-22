@@ -16,15 +16,15 @@
           <a class="nav-link" href="#">Other Option</a>
         </li>
       </ul>
-      <div class="d-flex mx-auto" style="max-width: 400px;">
-        <%= form_tag(search_path, method: :get, class: "d-flex w-100") do %>
-          <div class="input-group">
-            <%= text_field_tag(:query, nil, class: "form-control rounded-end with-icon", placeholder: "Search...") %>
+      <div class="d-flex">
+        <%= form_tag(search_path, method: :get, class: "d-flex") do %>
+          <div class="input-group align-items-center">
+            <%= text_field_tag(:query, nil, class: "form-control rounded-start with-icon", placeholder: "Search...") %>
             <span class="input-group-text">
-              <%= button_tag(type: :submit, class: "btn btn-primary") do %>
-                <i class="fas fa-search"></i>
-              <% end %>
-            </span>
+          <%= button_tag(type: :submit, class: "btn btn-primary search-btn") do %>
+            <i class="fas fa-search"></i>
+          <% end %>
+        </span>
           </div>
         <% end %>
       </div>
@@ -36,6 +36,7 @@
     </div>
   </div>
 </nav>
+
 
 <div class="container mt-5">
   <h2 class="text-center mb-4 fw-bold">All films</h2>

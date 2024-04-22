@@ -16,15 +16,15 @@
           <a class="nav-link" href="#">Other Option</a>
         </li>
       </ul>
-      <div class="d-flex mx-auto" style="max-width: 400px;">
-        <%= form_tag(search_path, method: :get, class: "d-flex w-100") do %>
-          <div class="input-group">
-            <%= text_field_tag(:query, nil, class: "form-control rounded-end with-icon", placeholder: "Search...") %>
+      <div class="d-flex">
+        <%= form_tag(search_path, method: :get, class: "d-flex") do %>
+          <div class="input-group align-items-center">
+            <%= text_field_tag(:query, nil, class: "form-control rounded-start with-icon", placeholder: "Search...") %>
             <span class="input-group-text">
-              <%= button_tag(type: :submit, class: "btn btn-primary") do %>
-                <i class="fas fa-search"></i>
-              <% end %>
-            </span>
+          <%= button_tag(type: :submit, class: "btn btn-primary search-btn") do %>
+            <i class="fas fa-search"></i>
+          <% end %>
+        </span>
           </div>
         <% end %>
       </div>
@@ -38,25 +38,26 @@
 </nav>
 
 
-<div class="row mt-5">
-  <div class="col-md-12">
-    <div class="d-flex flex-wrap justify-content-start">
-      <% @random_films.each do |film| %>
-        <div class="col-md-2 p-0">
-          <%= link_to film_path(film) do %>
-            <div class="card border-0 rounded-0">
-              <% if film.image.attached? %>
-            <%= image_tag rails_blob_path(film.image), class: "card-img", alt: "Random Movie Poster" %>
-              <% else %>
-                <div class="card-img">No Image</div>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+
+<div class="col-md-12 mt-2">
+  <div class="d-flex flex-wrap">
+    <% @random_films.each do |film| %>
+      <div class="col-md-2 p-0">
+        <%= link_to film_path(film) do %>
+          <div class="card border-0 rounded-0">
+            <% if film.image.attached? %>
+              <%= image_tag rails_blob_path(film.image), class: "card-img random-posters-image border-0 rounded-0", alt: "Random Movie Poster" %>
+            <% else %>
+              <div class="card-img">No Image</div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
+
+
 
 
 
@@ -68,7 +69,7 @@
         <%= link_to film_path(film) do %>
           <div class="card">
             <% if film.image.attached? %>
-              <%= image_tag rails_blob_path(film.image), class: "card-img-top img-fluid img-height", alt: film.title %>
+              <%= image_tag rails_blob_path(film.image), class: "card-img-top img-fluid latest-updates-image", alt: film.title %>
             <% else %>
               <div class="card-img-top img-height">No Image</div>
             <% end %>
