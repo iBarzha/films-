@@ -3,6 +3,10 @@ class FilmsController < ApplicationController
     @film = Film.find(params[:id])
   end
 
+  def search
+    @query = params[:query]
+    @results = Film.where("title LIKE ?", "%#{@query}%")
+  end
   def index
     @q = Film.ransack(params[:q])
 
@@ -22,6 +26,7 @@ class FilmsController < ApplicationController
       end
     else
       @films = Film.all
+      @random_films = Film.order("RANDOM()").limit(6)
     end
   end
 end
