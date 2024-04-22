@@ -1,17 +1,29 @@
-<% if user_signed_in? %>
-  <div class="text-end mt-3 m-4">
-    <%= link_to('Sign out', destroy_user_session_path, method: :delete, class: "btn btn-primary text-white") %>
-  </div>
-<% else %>
-  <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-6 text-center">
-        <p class="mb-4">Please <%= link_to('sign up', new_user_registration_path) %> or <%= link_to('sign in', new_user_session_path) %> to continue.</p>
-      </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Logo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">All Films</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Other Option</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to('Sign out', destroy_user_session_path, method: :delete, class: "nav-link") %>
+        </li>
+      </ul>
     </div>
   </div>
-<% end %>
-
+</nav>
 <div class="container mt-3">
   <div class="row justify-content-center">
     <div class="col-md-6 text-center">
@@ -29,23 +41,26 @@
   </div>
 </div>
 
-
-
 <div class="row mt-5">
-  <% @random_films.each do |film| %>
-    <div class="col-md-2 mb-4">
-      <%= link_to film_path(film) do %>
-        <div class="card">
-          <% if film.image.attached? %>
-            <%= image_tag rails_blob_path(film.image), class: "card-img-top", alt: "Random Movie Poster" %>
-          <% else %>
-            <div class="card-img-top">No Image</div>
+  <div class="col-md-12">
+    <div class="d-flex flex-wrap justify-content-start">
+      <% @random_films.each do |film| %>
+        <div class="col-md-2 p-0">
+          <%= link_to film_path(film) do %>
+            <div class="card border-0 rounded-0">
+              <% if film.image.attached? %>
+            <%= image_tag rails_blob_path(film.image), class: "card-img", alt: "Random Movie Poster" %>
+              <% else %>
+                <div class="card-img">No Image</div>
+              <% end %>
+            </div>
           <% end %>
         </div>
       <% end %>
     </div>
-  <% end %>
+  </div>
 </div>
+
 
 
 <div class="container mt-5">
