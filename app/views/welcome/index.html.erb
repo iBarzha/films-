@@ -37,8 +37,6 @@
   </div>
 </nav>
 
-
-
 <div class="col-md-12 mt-2">
   <div class="d-flex flex-wrap">
     <% @random_films.each do |film| %>
@@ -56,10 +54,6 @@
     <% end %>
   </div>
 </div>
-
-
-
-
 
 <div class="container mt-5">
   <h2 class="text-center mb-4 fw-bold">Latest updates</h2>
@@ -84,17 +78,49 @@
   </div>
 </div>
 
+<div class="container mt-5">
+  <div class="text-center mb-4">
+    <i class="fas fa-coffee fa-2x text-dark"></i>
+    <h2 class="fw-bold">News Feed</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <div class="card border-0 shadow mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Exciting Announcement about "The Matrix"</h5>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tristique justo nec risus finibus, vel consequat libero consectetur. Cras lobortis lacus sit amet elit malesuada, in vulputate ex tempor. Duis et velit gravida, malesuada risus at, fermentum magna.</p>
+          <p class="card-text"><small class="text-muted">Published on April 23, 2024</small></p>
+        </div>
+      </div>
+      <div class="card border-0 shadow mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Breaking News: New Trailer for "Star Wars: Episode X"</h5>
+          <p class="card-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+          <p class="card-text"><small class="text-muted">Published on April 22, 2024</small></p>
+        </div>
+      </div>
+      <div class="card border-0 shadow mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Exclusive Interview with Director of "Inception"</h5>
+          <p class="card-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+          <p class="card-text"><small class="text-muted">Published on April 21, 2024</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <footer class="bg-dark text-white py-4">
   <div class="container">
     <div class="row">
       <div class="col-md-4">
         <h5 class="fw-bold fs-5 text-white">Newsletter</h5>
         <p class="mb-0 fs-5 text-white">Subscribe for our news</p>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control fs-5" placeholder="Your email" aria-label="Your email" aria-describedby="basic-addon2">
+        <div class="input-group mb-3 mt-3">
+          <input type="text" class="form-control fs-5" placeholder="E-mail" aria-label="E-mail" aria-describedby="basic-addon2">
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 text-center">
         <h5 class="fw-bold fs-5 text-white">Genres</h5>
         <div class="row">
           <div class="col-sm-6">
@@ -117,19 +143,22 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <h5 class="fw-bold fs-5 text-white">Our Socials</h5>
-        <!-- Links to social media profiles can be placed here -->
+      <div class="col-md-4 text-md-end">
+        <h5 class="fw-bold fs-3 text-white">Our Socials</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white text-decoration-none fs-4"><i class="fab fa-youtube"></i> YouTube</a></li>
+          <li><a href="#" class="text-white text-decoration-none fs-4"><i class="fab fa-twitch"></i> Twitch</a></li>
+          <li><a href="#" class="text-white text-decoration-none fs-4"><i class="fab fa-telegram"></i> Telegram</a></li>
+        </ul>
       </div>
     </div>
     <hr class="my-4">
     <div class="row">
-      <div class="col-md-6">
-        <p class="mb-0 fs-5">&copy; 2024 Your Website</p>
-        <p class="mb-0 fs-5"><a href="/about" class="fs-5">About</a> | <a href="/films" class="fs-5">All Films</a></p>
+      <div class="col-md-6 order-md-2 text-md-end">
+        <p class="mb-0 fs-5 text-white">&copy; 2024 Website</p>
       </div>
-      <div class="col-md-6 text-md-end">
-        <!-- Additional links or information can be placed here -->
+      <div class="col-md-6 order-md-1 text-md-start">
+        <p class="mb-0 fs-5"><a href="#" class="fs-5 text-white">About</a> | <a href="/films" class="fs-5 text-white">All Films</a></p>
       </div>
     </div>
   </div>
