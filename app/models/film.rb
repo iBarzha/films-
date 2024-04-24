@@ -2,7 +2,8 @@ class Film < ApplicationRecord
   has_many :comments
   has_one :image_attachment, class_name: 'ActiveStorage::Attachment', as: :record
   has_one_attached :image
-  belongs_to :genre
+  has_many :film_genres
+  has_many :genres, through: :film_genres
   belongs_to :author
   validate :image_content_type
   validate :image_size

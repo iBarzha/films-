@@ -52,7 +52,12 @@
           <h2 class="card-title"><%= @film.title %></h2>
           <p class="card-text"><strong>Release Year:</strong> <%= @film.year %></p>
           <p class="card-text"><strong>Author:</strong> <%= @film.author.name %></p>
-          <p class="card-text"><strong>Genre:</strong> <%= @film.genre.name %></p>
+          <p class="card-text"><strong>Genres:</strong>
+            <% @film.genres.each do |genre| %>
+              <%= genre.name %>
+              <% unless genre == @film.genres.last %>, <% end %>
+            <% end %>
+          </p>
           <p class="card-text"><strong>Description:</strong> <%= @film.description %></p>
         </div>
       </div>

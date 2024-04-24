@@ -1,12 +1,14 @@
 ActiveAdmin.register Film do
-  permit_params :title, :description, :genre_id, :year, :image, :author_id
+  permit_params :title, :description, :year, :image, :author_id, genre_ids: []
 
   index do
     selectable_column
     column :id
     column :title
     column :description
-    column :genre
+    column "Genres" do |film|
+      film.genres.map(&:name).join(', ')
+    end
     column :year
     column :author
     actions
@@ -16,7 +18,9 @@ ActiveAdmin.register Film do
     attributes_table do
       row :title
       row :description
-      row :genre
+      row "Genres" do |film|
+        film.genres.map(&:name).join(', ')
+      end
       row :year
       row "Image" do |film|
         if film.image.attached?
@@ -33,7 +37,7 @@ ActiveAdmin.register Film do
     f.inputs do
       f.input :title
       f.input :description
-      f.input :genre
+      f.input :genres, as: :check_boxes
       f.input :year
       f.input :image, as: :file
       f.input :author
@@ -43,13 +47,19 @@ ActiveAdmin.register Film do
 
   filter :title
   filter :description
-  filter :genre
   filter :year
   filter :image_filename, as: :string, label: 'Image Filename'
 
+  filter :genre_id,
+         as: :select,
+         label: 'Genre',
+         collection: Genre.pluck(:name, :id),
+         multiple: true,
+         input_html: { name: 'q[genre_id_in]' }
+
   controller do
     def scoped_collection
-      Film.includes(:image_attachment)
+      Film.includes(:image_attachment, :genres)
     end
   end
 end
