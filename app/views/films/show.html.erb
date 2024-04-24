@@ -51,10 +51,10 @@
         <div class="card-body">
           <h2 class="card-title"><%= @film.title %></h2>
           <p class="card-text"><strong>Release Year:</strong> <%= @film.year %></p>
-          <p class="card-text"><strong>Author:</strong> <%= @film.author.name %></p>
+          <p class="card-text"><strong>Author:</strong> <%= link_to @film.author.name, author_films_path(@film.author) %></p>
           <p class="card-text"><strong>Genres:</strong>
             <% @film.genres.each do |genre| %>
-              <%= genre.name %>
+              <%= link_to genre.name, genre_films_path(genre) %>
               <% unless genre == @film.genres.last %>, <% end %>
             <% end %>
           </p>
@@ -63,6 +63,7 @@
       </div>
     </div>
   </div>
+</div>
 
   <div class="row">
     <div class="col-md-12">

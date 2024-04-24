@@ -7,6 +7,14 @@ Rails.application.routes.draw do
 
   resources :films, only: [:show]
 
+  resources :authors do
+    resources :films, only: [:index], controller: 'films_by_author'
+
+    end
+    resources :genres do
+      resources :films, only: [:index], controller: 'films_by_genre'
+
+  end
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
