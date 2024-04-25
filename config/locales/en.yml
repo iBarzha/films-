@@ -27,5 +27,91 @@
 #       "yes": yup
 #       enabled: "ON"
 
+
 en:
-  hello: "Hello world"
+  login:
+    title: "Log in"
+    email_label: "Email"
+    password_label: "Password"
+    remember_me_label: "Remember me"
+    login_button: "Log in"
+    forgot_password_link: "Forgot password?"
+    sign_up_link: "Sign up"
+
+  forgot_password:
+    title: "Forgot your password?"
+    email_placeholder: "Enter your email"
+    send_instructions_button: "Send me reset password instructions"
+
+  sign_up:
+      title: "Sign up"
+      email_placeholder: "Enter your email"
+      password_placeholder: "Enter your password"
+      confirm_password_placeholder: "Confirm your password"
+      minimum_characters: "characters minimum"
+      submit_button: "Sign up"
+
+  navbar:
+    home: "Home"
+    all_films: "All Films"
+    other_option: "Other Option"
+    search_placeholder: "Search..."
+    sign_out: "Sign out"
+
+  footer:
+    newsletter:
+      title: "Newsletter"
+      subscribe_prompt: "Subscribe for our news"
+      email_placeholder: "E-mail"
+    genres:
+      title: "Genres"
+      action: "Action"
+      adventure: "Adventure"
+      animation: "Animation"
+      biography: "Biography"
+      comedy: "Comedy"
+      crime: "Crime"
+      documentary: "Documentary"
+      drama: "Drama"
+      family: "Family"
+      fantasy: "Fantasy"
+    socials:
+      title: "Our Socials"
+      youtube: "YouTube"
+      twitch: "Twitch"
+      telegram: "Telegram"
+    copyright: "&copy; 2024 Website"
+    about: "About"
+    all_films: "All Films"
+
+  latest_updates_title: "Latest updates"
+  news_feed_title: "News Feed"
+
+  by_author:
+    title: "Films by"
+    year: "Release Year:"
+    genres: "Genres:"
+    description: "Description:"
+
+  by_genres:
+    title: "Films genre:"
+    year: "Release Year:"
+    author: "Author:"
+    description: "Description:"
+
+  all_films:
+    title: "All films"
+
+  film:
+    year: "Release Year:"
+    author: "Author:"
+    genres: "Genres:"
+    description: "Description:"
+
+  comments:
+    title: "Comments"
+    add: "Add a comment:"
+    post: "Post comment"
+
+  search:
+    title: "Search results"
