@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   resources :authors do
     resources :films, only: [:index], controller: 'films_by_author'
 
-    end
-    resources :genres do
-      resources :films, only: [:index], controller: 'films_by_genre'
+  end
+  resources :genres do
+    resources :films, only: [:index], controller: 'films_by_genre'
 
   end
   devise_scope :user do
