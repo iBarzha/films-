@@ -23,10 +23,10 @@
           <div class="input-group align-items-center">
             <%= text_field_tag(:query, nil, class: "form-control rounded-start with-icon", placeholder: t('navbar.search_placeholder')) %>
             <span class="input-group-text">
-          <%= button_tag(type: :submit, class: "btn btn-primary search-btn") do %>
-            <i class="fas fa-search"></i>
-          <% end %>
-        </span>
+              <%= button_tag(type: :submit, class: "btn btn-primary search-btn") do %>
+                <i class="fas fa-search"></i>
+              <% end %>
+            </span>
           </div>
         <% end %>
       </div>
@@ -35,9 +35,18 @@
           <%= link_to(t('navbar.sign_out'), destroy_user_session_path, method: :delete, class: "nav-link") %>
         </li>
       </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <%= link_to('en', url_for(locale: :en), class: 'nav-link') %>
+        </li>
+        <li class="nav-item">
+          <%= link_to('uk', url_for(locale: :uk), class: 'nav-link') %>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
+
 
 <div class="col-md-12 mt-2">
   <div class="d-flex flex-wrap">
