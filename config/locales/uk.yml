@@ -24,7 +24,7 @@ uk:
   navbar:
     home: "Головна"
     all_films: "Всі фільми"
-    other_option: "Інша опція"
+    other_option: "Інші опції"
     search_placeholder: "Пошук..."
     sign_out: "Вийти"
 
@@ -50,7 +50,6 @@ uk:
       youtube: "YouTube"
       twitch: "Twitch"
       telegram: "Telegram"
-    copyright: "&copy; 2024 Веб-сайт"
     about: "Про нас"
     all_films: "Всі фільми"
 

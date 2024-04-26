@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="<%= root_path(locale: I18n.locale) %>">
       <img class="rounded-circle" src="https://picsum.photos/50">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,10 +9,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="/"><%= t('navbar.home') %></a>
+          <a class="nav-link" href="<%= root_path(locale: I18n.locale) %>"><%= t('navbar.home') %></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/films"><%= t('navbar.all_films') %></a>
+          <a class="nav-link" href="<%= films_path(locale: I18n.locale) %>"><%= t('navbar.all_films') %></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#"><%= t('navbar.other_option') %></a>
@@ -36,12 +36,15 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <%= link_to('en', url_for(locale: :en), class: 'nav-link') %>
-        </li>
-        <li class="nav-item">
-          <%= link_to('uk', url_for(locale: :uk), class: 'nav-link') %>
-        </li>
+        <% if I18n.locale == :en %>
+          <li class="nav-item">
+            <%= link_to('uk', url_for(locale: :uk), class: 'nav-link') %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to('en', url_for(locale: :en), class: 'nav-link') %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
@@ -168,7 +171,7 @@
     <hr class="my-4">
     <div class="row">
       <div class="col-md-6 order-md-2 text-md-end">
-        <p class="mb-0 fs-5 text-white"><%= t('footer.copyright') %></p>
+        <p class="mb-0 fs-5 text-white">&copy; 2024 Website</p>
       </div>
       <div class="col-md-6 order-md-1 text-md-start">
         <p class="mb-0 fs-5"><a href="#" class="fs-5 text-white"><%= t('footer.about') %></a> | <a href="/films" class="fs-5 text-white"><%= t('footer.all_films') %></a></p>
