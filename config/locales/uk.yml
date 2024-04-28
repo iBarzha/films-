@@ -1,0 +1,86 @@
+uk:
+  login:
+    title: "Увійти"
+    email_label: "Електронна пошта"
+    password_label: "Пароль"
+    remember_me_label: "Запам'ятати мене"
+    login_button: "Увійти"
+    forgot_password_link: "Забули пароль?"
+    sign_up_link: "Зареєструватися"
+
+  forgot_password:
+    title: "Забули пароль?"
+    email_placeholder: "Введіть свою електронну адресу"
+    send_instructions_button: "Надіслати інструкції щодо скидання пароля"
+
+  sign_up:
+    title: "Реєстрація"
+    email_placeholder: "Введіть свою електронну адресу"
+    password_placeholder: "Введіть свій пароль"
+    confirm_password_placeholder: "Підтвердіть свій пароль"
+    minimum_characters: "мінімум символів"
+    submit_button: "Зареєструватися"
+
+  navbar:
+    home: "Головна"
+    all_films: "Всі фільми"
+    other_option: "Інші опції"
+    search_placeholder: "Пошук..."
+    sign_out: "Вийти"
+
+  footer:
+    newsletter:
+      title: "Розсилка"
+      subscribe_prompt: "Підпишіться на наші новини"
+      email_placeholder: "Електронна пошта"
+    genres:
+      title: "Жанри"
+      action: "Бойовик"
+      adventure: "Пригоди"
+      animation: "Анімація"
+      biography: "Біографія"
+      comedy: "Комедія"
+      crime: "Кримінал"
+      documentary: "Документальний"
+      drama: "Драма"
+      family: "Сімейний"
+      fantasy: "Фентезі"
+    socials:
+      title: "Наші соціальні мережі"
+      youtube: "YouTube"
+      twitch: "Twitch"
+      telegram: "Telegram"
+    about: "Про нас"
+    all_films: "Всі фільми"
+
+  latest_updates_title: "Останні оновлення"
+  news_feed_title: "Стрічка новин"
+
+  by_author:
+    title: "Фільми від"
+    year: "Рік випуску:"
+    genres: "Жанр:"
+    description: "Опис:"
+
+  by_genres:
+    title: "Фільми жанру:"
+    year: "Рік випуску:"
+    author: "Автор:"
+    description: "Опис:"
+
+  all_films:
+    title: "Всі фільми"
+
+  film:
+    year: "Рік випуску:"
+    author: "Автор:"
+    genres: "Жанр:"
+    description: "Опис:"
+
+  comments:
+    title: "Коментарі"
+    add: "Додати коментар:"
+    post: "Викласти коментар"
+
+  search:
+    title: "Результат пошуку"
