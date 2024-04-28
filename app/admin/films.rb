@@ -37,7 +37,7 @@ ActiveAdmin.register Film do
     f.inputs do
       f.input :title
       f.input :description
-      f.input :genres, as: :check_boxes
+      f.input :genres, as: :check_boxes, include_blank: false
       f.input :year
       f.input :image, as: :file
       f.input :author
@@ -50,12 +50,6 @@ ActiveAdmin.register Film do
   filter :year
   filter :image_filename, as: :string, label: 'Image Filename'
 
-  filter :genre_id,
-         as: :select,
-         label: 'Genre',
-         collection: Genre.pluck(:name, :id),
-         multiple: true,
-         input_html: { name: 'q[genre_id_in]' }
 
   controller do
     def scoped_collection

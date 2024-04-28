@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_24_111102) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_26_105805) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -97,19 +97,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_24_111102) do
     t.integer "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "genre_id", null: false
     t.integer "author_id"
     t.index ["author_id"], name: "index_films_on_author_id"
-    t.index ["genre_id"], name: "index_films_on_genre_id"
-  end
-
-  create_table "films_genres", id: false, force: :cascade do |t|
-    t.integer "film_id", null: false
-    t.integer "genre_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["film_id"], name: "index_films_genres_on_film_id"
-    t.index ["genre_id"], name: "index_films_genres_on_genre_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -138,7 +127,4 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_24_111102) do
   add_foreign_key "film_genres", "films"
   add_foreign_key "film_genres", "genres"
   add_foreign_key "films", "authors"
-  add_foreign_key "films", "genres"
-  add_foreign_key "films_genres", "films"
-  add_foreign_key "films_genres", "genres"
 end
